@@ -1,1 +1,2 @@
 DEBUG = False
+SECRET_KEY = 's_1*b7g=9agy@a(!s(3#-zw4p*z#z=$j!swur-+97@_z6#y(ii'
