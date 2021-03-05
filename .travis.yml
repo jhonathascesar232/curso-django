@@ -7,6 +7,7 @@ env:
     - PIPENV_IGNORE_VIRTUALENVS=1
 install:
   - pip install pipenv
+  - pipenv install codecov
   - pipenv sync --dev
   - cp contrib/env-sample .env
 script:
