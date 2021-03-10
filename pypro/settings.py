@@ -82,11 +82,6 @@ parse_database = partial(dj_database_url.parse, conn_max_age=600)
 
 DATABASES = {
     'default': config('DATABASE_URL', default=default_db_url, cast=parse_database)
-    # {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': default_db_url,
-    #      'NAME': BASE_DIR / 'db.sqlite3',
-    # }
 }
 
 # Password validation
