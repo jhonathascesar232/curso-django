@@ -30,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 # Busca uma viavel de ambiente 'debug' em '.env' / cast converte a var para bool
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['www.pypro-landing-page.xyz', 'pyprojc.herokuapp.com/', 'localhost']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())#['www.pypro-landing-page.xyz', 'pyprojc.herokuapp.com/', 'localhost']
 
 # Application definition
 
