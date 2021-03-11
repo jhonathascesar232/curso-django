@@ -14,4 +14,5 @@
     5 - Branch name / Wait for CI to pass before deploy
     6 - Enable Automatic deploys
 
-Aplicação disponível em https://pyprojc.herokuapp.com/
+Aplicação disponível no Heroku em https://pyprojc.herokuapp.com/
+e na WEB em http://www.pypro-landing-page.xyz
