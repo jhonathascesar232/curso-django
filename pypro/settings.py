@@ -148,7 +148,6 @@ if AWS_ACCESS_KEY_ID:
     AWS_DEFAULT_ACL = 'private'  # para os arquivos do s3 não ficarem públicos
 
     # Configurações dos arquivos estáticos
-    # ---------------------------------------------------------
     STATICFILES_STORAGE = 's3_folder_storage.s3.StaticStorage'
     STATIC_S3_PATH = "static"
     STATIC_ROOT = f'//{STATIC_S3_PATH}/'
@@ -156,7 +155,6 @@ if AWS_ACCESS_KEY_ID:
     ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
     # Configurações de upload de media
-    # ---------------------------------------------------------
     DEFAULT_FILE_STORAGE = 's3_folder_storage.s3.DefaultStorage'
     DEFAULT_S3_PATH = "media"
     MEDIA_ROOT = f'//{DEFAULT_S3_PATH}/'
