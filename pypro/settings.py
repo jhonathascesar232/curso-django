@@ -128,6 +128,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 # Utilizado para fazer upload apenas dos arquivos modificados
 # LOCAL
+
 COLLECTFAST_ENABLED = False
 
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
@@ -143,7 +144,9 @@ if AWS_ACCESS_KEY_ID:
     AWS_QUERYSTRING_AUTH = True
     AWS_S3_CUSTOM_DOMAIN = None
     # AWS
+
     COLLECTFAST_ENABLED = True
+
 
     AWS_DEFAULT_ACL = 'private'  # para os arquivos do s3 não ficarem públicos
 
