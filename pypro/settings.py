@@ -147,7 +147,6 @@ if AWS_ACCESS_KEY_ID:
 
     COLLECTFAST_ENABLED = True
 
-
     AWS_DEFAULT_ACL = 'private'  # para os arquivos do s3 não ficarem públicos
 
     # Configurações dos arquivos estáticos
