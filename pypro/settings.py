@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 from functools import partial
-from pathlib import Path
+# from pathlib import Path
 
 import dj_database_url
 import os
@@ -19,7 +19,8 @@ from decouple import config
 from decouple import Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -131,9 +132,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 COLLECTFAST_ENABLED = False
 
-AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID', default=False)
 # configuração para o s3
 if AWS_ACCESS_KEY_ID:
+    # AWS
+
+    COLLECTFAST_ENABLED = True
+    # STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
+
     AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
     # CONTROLE DO TEMPO DE CACHE DO S3'
@@ -143,9 +150,6 @@ if AWS_ACCESS_KEY_ID:
     AWS_AUTO_CREATE_BUCKET = False
     AWS_QUERYSTRING_AUTH = True
     AWS_S3_CUSTOM_DOMAIN = None
-    # AWS
-
-    COLLECTFAST_ENABLED = True
 
     AWS_DEFAULT_ACL = 'private'  # para os arquivos do s3 não ficarem públicos
 
