@@ -18,6 +18,6 @@ before_script:
   - psql -c "CREATE DATABASE testedb;" -U postgres
 script:
   - pipenv run flake8 .
-  - pipenv run pytest --cov=pypro
+  - pipenv run py.test --cov-report term --cov=pypro/base/tests/
 after_success:
-  - pipenv run codecov
+  - codecov
